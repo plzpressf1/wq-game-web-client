@@ -1,3 +1,3 @@
-# si-game web client
+# wq-game web client
 
 Some info incoming...
