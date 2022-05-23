@@ -2,12 +2,22 @@ nav {
     display: flex;
     margin-left: 5px;
     margin-top: 5px;
-    text-align: center;
-    align-items: center;
 }
 
-nav a {
+nav .item {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 100%;
+    border-bottom: 3px solid darkblue;
+}
+
+nav .item a {
+    margin-left: 5px;
     text-decoration: none;
     color: white;
-    width: 100px;
+}
+
+nav .item.active {
+    border-bottom: 3px solid yellow;
 }
