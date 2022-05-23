@@ -1,5 +1,22 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
+.main-wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+header, main {
+    display: flex;
+}
+
+header {
+    height: 50px;
+    background-color: darkblue;
+}
+
+main {
+    height: 100%;
+}
