@@ -2,6 +2,7 @@ import { observable, action, makeObservable, runInAction } from "mobx";
 
 import { LocalStorageEntryName } from "../api/common";
 import { authLogin, authFetchUser } from "../api/auth";
+import {IGame} from "../api/games";
 
 export interface IUser {
     _id: string;
@@ -12,6 +13,7 @@ export interface IUser {
 class Store {
     isFetchingUser: boolean = false;
     user: IUser | null = null;
+    game: IGame | null = null;
 
     constructor() {
         makeObservable(this, {
@@ -46,7 +48,8 @@ class Store {
         try {
             const response = await authFetchUser();
             runInAction(() => {
-                this.user = response.data;
+                this.user = response.data.user;
+                this.game = response.data.game;
             });
         }
         catch (e) {
