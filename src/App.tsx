@@ -4,11 +4,11 @@ import { observer } from "mobx-react";
 
 import { UserStore } from "./stores/User";
 
-import LoginPage from "./components/LoginPage";
+import LoginPage from "./components/Login/LoginPage";
 import LobbyPage from "./components/LobbyPage";
-import GamesPage from "./components/GamesPage";
+import GamesPage from "./components/Games/GamesPage";
 import PacksPage from "./components/PacksPage";
-import TopBar from "./components/TopBar";
+import TopBar from "./components/TopBar/TopBar";
 
 import "./App.css";
 

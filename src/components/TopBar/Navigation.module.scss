@@ -1,24 +1,24 @@
-nav {
+.navigation {
     display: flex;
     margin-left: 5px;
     margin-top: 5px;
 }
 
-nav .item {
+.item {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100px;
     height: 100%;
     border-bottom: 3px solid darkblue;
+
+    &.active {
+        border-bottom: 3px solid yellow;
+    }
 }
 
-nav .item a {
+.link {
     margin-left: 5px;
     text-decoration: none;
     color: white;
-}
-
-nav .item.active {
-    border-bottom: 3px solid yellow;
 }

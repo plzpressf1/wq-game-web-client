@@ -1,0 +1,20 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+
+    .input {
+        padding: 10px;
+        font-size: 18px;
+        width: 300px;
+    }
+
+    .button {
+        padding: 4px;
+        font-size: 20px;
+        width: 200px;
+    }
+}

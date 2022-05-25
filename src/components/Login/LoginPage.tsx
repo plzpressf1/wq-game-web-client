@@ -1,8 +1,8 @@
 import { useRef } from "react";
 
-import { UserStore } from "../stores/User";
+import { UserStore } from "../../stores/User";
 
-import "../styles/login.css";
+import styles from "./LoginPage.module.scss";
 
 export default function LoginPage() {
     const loginRef = useRef<HTMLInputElement>(null);
@@ -23,20 +23,23 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="login-page">
+        <div className={styles.page}>
             <input
+                className={styles.input}
                 type="text"
                 placeholder="Логин"
                 ref={loginRef}
                 onKeyUp={(e) => onInputKeyUp(e.key)}
             />
             <input
+                className={styles.input}
                 type="password"
                 placeholder="Пароль"
                 ref={passwordRef}
                 onKeyUp={(e) => onInputKeyUp(e.key)}
             />
             <button
+                className={styles.button}
                 onClick={onLogin}
             >
                 Войти

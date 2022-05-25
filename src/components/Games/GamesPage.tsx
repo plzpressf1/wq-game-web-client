@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import { IGame, searchGamesByFilter } from "../api/games";
+import { IGame, searchGamesByFilter } from "../../api/games";
 
-import DebouncedInput from "./DebouncedInput";
+import DebouncedInput from "../common/DebouncedInput";
 import GameItem from "./GameItem";
 
-import "../styles/games.css";
+import styles from "./GamesPage.module.scss";
 
 export default function GamesPage() {
     const [games, setGames] = useState<IGame[]>([]);
@@ -16,16 +16,14 @@ export default function GamesPage() {
     };
 
     return (
-        <div className="games-page">
-            <div className="search">
-                <DebouncedInput
-                    autoFocus
-                    className="search-input"
-                    placeholder="Поиск игры..."
-                    callback={searchGames}
-                />
-            </div>
-            <div className="games">
+        <div className={styles.page}>
+            <DebouncedInput
+                autoFocus
+                className={styles.search}
+                placeholder="Поиск игры..."
+                callback={searchGames}
+            />
+            <ul className={styles.games}>
                 {
                     games.map(game =>
                         <GameItem
@@ -34,7 +32,7 @@ export default function GamesPage() {
                         />
                     )
                 }
-            </div>
+            </ul>
         </div>
     );
 }

@@ -2,9 +2,9 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Link, useLocation } from "react-router-dom";
 
-import { UserStore } from "../stores/User";
+import { UserStore } from "../../stores/User";
 
-import "../styles/navigation.css";
+import styles from "./Navigation.module.scss";
 
 interface NavigationItem {
     pathname: string;
@@ -34,7 +34,7 @@ function Navigation() {
     const location = useLocation();
 
     return (
-        <nav>
+        <nav className={styles.navigation}>
             {
                 navigation.map(item => {
                     if (item.pathname === "/host" && UserStore.game) {
@@ -43,15 +43,16 @@ function Navigation() {
                     if (item.pathname === "/lobby" && !UserStore.game) {
                         return null;
                     }
-                    const itemClasses = ["item"];
+                    const itemClasses = [styles.item];
                     if (item.pathname === location.pathname) {
-                        itemClasses.push("active");
+                        itemClasses.push(styles.active);
                     }
                     return <div
                         key={item.pathname}
                         className={itemClasses.join(" ")}
                     >
                         <Link
+                            className={styles.link}
                             to={item.pathname}
                         >
                             {item.text}
