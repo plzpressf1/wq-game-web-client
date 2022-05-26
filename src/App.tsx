@@ -5,9 +5,9 @@ import { observer } from "mobx-react";
 import { UserStore } from "./stores/User";
 
 import LoginPage from "./components/Login/LoginPage";
-import LobbyPage from "./components/LobbyPage";
+import LobbyPage from "./components/Lobby/LobbyPage";
 import GamesPage from "./components/Games/GamesPage";
-import PacksPage from "./components/PacksPage";
+import PacksPage from "./components/Packs/PacksPage";
 import TopBar from "./components/TopBar/TopBar";
 
 import "./App.css";
