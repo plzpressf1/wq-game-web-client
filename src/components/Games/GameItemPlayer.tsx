@@ -8,10 +8,8 @@ export interface GameItemPlayerProps {
 
 export default function GameItemPlayer({ player }: GameItemPlayerProps) {
     return (
-        <div className={styles.outer}>
-            <div className={styles.inner}>
-                {player.name[0].toUpperCase()}
-            </div>
-        </div>
+        <li className={styles.outer}>
+            <div className={styles.inner}/>
+        </li>
     );
 }
