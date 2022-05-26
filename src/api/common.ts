@@ -3,6 +3,8 @@ import axios from "axios";
 import { AuthResponse } from "./auth";
 
 export const ApiEndpoint = "http://localhost:4000";
+export const WsEndpoint = "ws://localhost:4000";
+
 export const LocalStorageEntryName = "wq-token";
 
 const $api = axios.create({
