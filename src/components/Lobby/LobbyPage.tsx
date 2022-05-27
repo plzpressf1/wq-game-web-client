@@ -7,6 +7,8 @@ import { UserStore } from "stores/User";
 
 import Spectators from "./Spectators";
 import Leader from "./Leader";
+import Players from "./Players";
+import Board from "./Board";
 
 import styles from "./LobbyPage.module.scss";
 
@@ -29,12 +31,14 @@ export interface IPlayer {
 }
 
 interface IPlayersList {
+    maxPlayers: number;
     spectators: IPlayer[];
     players: IPlayer[];
     leader: IPlayer | null;
 }
 
 function LobbyPage() {
+    const [maxPlayers, setMaxPlayers] = useState<number>(0);
     const [spectators, setSpectators] = useState<IPlayer[]>([]);
     const [players, setPlayers] = useState<IPlayer[]>([]);
     const [leader, setLeader] = useState<IPlayer | null>(null);
@@ -55,6 +59,7 @@ function LobbyPage() {
     }, []);
 
     const handlePlayersList = (resp: IPlayersList) => {
+        setMaxPlayers(resp.maxPlayers);
         setSpectators(resp.spectators);
         setPlayers(resp.players);
         setLeader(resp.leader);
@@ -74,7 +79,18 @@ function LobbyPage() {
                 </div>
             </div>
             <div className={styles.right}>
-
+                <div className={`${styles.bottom} ${styles.panel}`}>
+                    <Players
+                        maxPlayers={maxPlayers}
+                        players={players}
+                    />
+                </div>
+                <div
+                    className={styles.panel}
+                    style={{ height: "100%" }}
+                >
+                    <Board/>
+                </div>
             </div>
         </div>
     );
