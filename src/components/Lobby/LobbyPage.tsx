@@ -79,7 +79,7 @@ function LobbyPage() {
                 </div>
             </div>
             <div className={styles.right}>
-                <div className={`${styles.bottom} ${styles.panel}`}>
+                <div className={`${styles.bottom} ${styles.panel} ${styles.players}`}>
                     <Players
                         maxPlayers={maxPlayers}
                         players={players}
