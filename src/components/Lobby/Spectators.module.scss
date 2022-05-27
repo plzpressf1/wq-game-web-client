@@ -1,0 +1,24 @@
+.spectators {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+    margin-top: 20px;
+
+    .spectator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 37px;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 20px;
+        background-color: #ada279;
+        color: #4d442e;
+
+        &.disconnected {
+            background-color: #a4a091;
+            color: #756e5b;
+        }
+    }
+}

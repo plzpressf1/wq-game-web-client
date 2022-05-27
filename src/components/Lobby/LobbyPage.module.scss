@@ -1,0 +1,30 @@
+.page {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+    width: 100%;
+
+    .left, .right {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .bottom {
+        height: 215px;
+        flex: 0 0 215px;
+    }
+
+    .left {
+        width: 300px;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .panel {
+        background-color: #ada279;
+    }
+}

@@ -6,6 +6,9 @@ import { WsEndpoint } from "api/common";
 import { UserStore } from "stores/User";
 
 import Spectators from "./Spectators";
+import Leader from "./Leader";
+
+import styles from "./LobbyPage.module.scss";
 
 export enum PlayerStatus {
     NOT_CONNECTED,
@@ -58,8 +61,21 @@ function LobbyPage() {
     };
 
     return (
-        <div>
-            <Spectators spectators={spectators}/>
+        <div className={styles.page}>
+            <div className={styles.left}>
+                <div className={styles.bottom}>
+                    <Spectators spectators={spectators}/>
+                </div>
+                <div
+                    className={styles.panel}
+                    style={{ height: "100%" }}
+                >
+                    <Leader/>
+                </div>
+            </div>
+            <div className={styles.right}>
+
+            </div>
         </div>
     );
 }

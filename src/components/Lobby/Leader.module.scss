@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .leader {
+        width: 217px;
+        height: 290px;
+        background-color: #d4c691;
+
+        &.empty {
+            border: 2px dashed #7c6850;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+    }
+}
