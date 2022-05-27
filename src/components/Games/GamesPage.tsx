@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { IGame, searchGamesByFilter } from "../../api/games";
+import { IGame, searchGamesByFilter } from "api/games";
 
-import DebouncedInput from "../common/DebouncedInput";
+import DebouncedInput from "components/common/DebouncedInput";
 import GameItem from "./GameItem";
 
 import styles from "./GamesPage.module.scss";

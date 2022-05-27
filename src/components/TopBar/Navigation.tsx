@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Link, useLocation } from "react-router-dom";
 
-import { UserStore } from "../../stores/User";
+import { UserStore } from "stores/User";
 
 import styles from "./Navigation.module.scss";
 

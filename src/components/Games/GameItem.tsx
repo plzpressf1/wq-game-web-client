@@ -1,4 +1,4 @@
-import {IGame, IPlayer} from "../../api/games";
+import { IGame, IPlayer } from "api/games";
 
 import GameItemPlayer from "./GameItemPlayer";
 import JoinGameButton from "./JoinGameButton";

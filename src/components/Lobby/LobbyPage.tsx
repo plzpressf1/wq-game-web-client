@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 import openSocket from "socket.io-client";
 
-import { WsEndpoint } from "../../api/common";
-import { UserStore } from "../../stores/User";
+import { WsEndpoint } from "api/common";
+import { UserStore } from "stores/User";
 
 import Spectators from "./Spectators";
 

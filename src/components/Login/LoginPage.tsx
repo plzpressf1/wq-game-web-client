@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { UserStore } from "../../stores/User";
+import { UserStore } from "stores/User";
 
 import styles from "./LoginPage.module.scss";
 

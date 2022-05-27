@@ -1,4 +1,4 @@
-import { IPlayer } from "../../api/games";
+import { IPlayer } from "api/games";
 
 import styles from "./GameItemPlayer.module.scss";
 

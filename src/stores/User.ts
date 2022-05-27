@@ -1,8 +1,8 @@
 import { observable, action, makeObservable, runInAction } from "mobx";
 
-import { LocalStorageEntryName } from "../api/common";
-import { authLogin, authFetchUser } from "../api/auth";
-import {IGame} from "../api/games";
+import { LocalStorageEntryName } from "api/common";
+import { authLogin, authFetchUser } from "api/auth";
+import { IGame } from "api/games";
 
 export interface IUser {
     _id: string;

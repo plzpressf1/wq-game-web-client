@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import debounce from "../../utils/debounce";
+import debounce from "utils/debounce";
 
 interface DebouncedInputProps {
     callback: (...args: any[]) => any;
