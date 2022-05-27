@@ -1,4 +1,6 @@
-import { IPlayer } from "./LobbyPage";
+import {IPlayer, PlayerRole} from "./LobbyPage";
+
+import UserSlot from "./UserSlot";
 
 import styles from "./Players.module.scss";
 
@@ -8,12 +10,16 @@ interface PlayersProps {
 }
 
 const prepPlayers = ({ maxPlayers, players }: PlayersProps) => {
+    const getPlayerInSlot = (index: number) => {
+        for (const player of players) {
+            if (player.slot.index === index) return player;
+        }
+        return null;
+    };
+
     const res = [];
-    for (let i = 0; i < maxPlayers; ++i) {
-        res.push({
-            key: i,
-            value: null,
-        });
+    for (let key = 0; key < maxPlayers; ++key) {
+        res.push({ key, value: getPlayerInSlot(key) });
     }
     return res;
 };
@@ -24,9 +30,10 @@ export default function Players(props: PlayersProps) {
         <div className={styles.wrapper}>
             {
                 players.map(player =>
-                    <div
+                    <UserSlot
                         key={player.key}
-                        className={styles.player}
+                        user={player.value}
+                        slot={{ role: PlayerRole.PLAYER, index: player.key }}
                     />
                 )
             }

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react";
-import openSocket from "socket.io-client";
 
-import { WsEndpoint } from "api/common";
+import { openLobbyWs } from "api/ws";
 import { UserStore } from "stores/User";
 
 import Spectators from "./Spectators";
-import Leader from "./Leader";
+import UserSlot, { LobbySlot } from "./UserSlot";
 import Players from "./Players";
 import Board from "./Board";
 
@@ -27,7 +26,7 @@ export interface IPlayer {
     _id: string;
     name: string;
     status: PlayerStatus;
-    role: PlayerRole;
+    slot: LobbySlot;
 }
 
 interface IPlayersList {
@@ -44,13 +43,7 @@ function LobbyPage() {
     const [leader, setLeader] = useState<IPlayer | null>(null);
 
     useEffect(() => {
-        const socket = openSocket(WsEndpoint, {
-            path: "/game",
-            query: {
-                userId: UserStore.user?._id,
-                gameId: UserStore.game?._id,
-            }
-        });
+        const socket = openLobbyWs(UserStore.user?._id, UserStore.game?._id);
         socket.on("players/list", handlePlayersList);
 
         return () => {
@@ -72,10 +65,13 @@ function LobbyPage() {
                     <Spectators spectators={spectators}/>
                 </div>
                 <div
-                    className={styles.panel}
+                    className={`${styles.panel} ${styles.leader}`}
                     style={{ height: "100%" }}
                 >
-                    <Leader/>
+                    <UserSlot
+                        user={leader}
+                        slot={{ role: PlayerRole.LEADER }}
+                    />
                 </div>
             </div>
             <div className={styles.right}>
