@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+    gap: 10px;
+
+    .player {
+        width: 147px;
+        height: 197px;
+        background-color: #d4c691;
+        border-radius: 15px;
+        border: 2px dashed #7c6850;
+    }
+}
