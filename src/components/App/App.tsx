@@ -2,15 +2,16 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { observer } from "mobx-react";
 
-import { UserStore } from "./stores/User";
+import { UserStore } from "../../stores/User";
 
-import LoginPage from "./components/Login/LoginPage";
-import LobbyPage from "./components/Lobby/LobbyPage";
-import GamesPage from "./components/Games/GamesPage";
-import PacksPage from "./components/Packs/PacksPage";
-import TopBar from "./components/TopBar/TopBar";
+import LoginPage from "../Login/LoginPage";
+import LobbyPage from "../Lobby/LobbyPage";
+import GamesPage from "../Games/GamesPage";
+import PacksPage from "../Packs/PacksPage";
+import TopBar from "../TopBar/TopBar";
 
-import "./App.css";
+import "../../styles/common.css";
+import styles from "./App.module.scss";
 
 function App() {
     useEffect(() => {
@@ -25,11 +26,11 @@ function App() {
     if (UserStore.user) {
         return (
             <BrowserRouter>
-                <div className="main-wrapper">
-                    <header>
+                <div className={styles.wrapper}>
+                    <header className={styles.header}>
                         <TopBar/>
                     </header>
-                    <main>
+                    <main className={styles.main}>
                         <Routes>
                             <Route path="/lobby" element={<LobbyPage/>}/>
                             <Route path="/games" element={<GamesPage/>}/>
