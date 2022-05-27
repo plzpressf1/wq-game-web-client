@@ -1,4 +1,6 @@
-import { IPlayer } from "./LobbyPage";
+import { IPlayer, PlayerStatus } from "./LobbyPage";
+
+import styles from "./Spectators.module.scss";
 
 interface SpectatorProps {
     spectators: IPlayer[];
@@ -6,10 +8,20 @@ interface SpectatorProps {
 
 export default function Spectators({ spectators }: SpectatorProps) {
     return (
-        <div>
-            <span>spectators: </span>
+        <div className={styles.spectators}>
             {
-                spectators.map(player => <span>{player.name} {player.status} </span>)
+                spectators.map(player => {
+                    const specStyle = [styles.spectator];
+                    if (player.status === PlayerStatus.NOT_CONNECTED) {
+                        specStyle.push(styles.disconnected);
+                    }
+                    return <span
+                        key={player._id}
+                        className={specStyle.join(" ")}
+                    >
+                        {player.name}
+                    </span>;
+                })
             }
         </div>
     );
