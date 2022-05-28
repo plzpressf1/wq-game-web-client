@@ -18,8 +18,8 @@ export interface IGame {
     name: string;
     host: IUser;
     pack: IPack;
-    maxPlayers: number;
-    players: IUser[];
+    playerSlots: number;
+    participants: IUser[];
 }
 
 export interface GamesResponse {

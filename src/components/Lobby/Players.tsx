@@ -1,15 +1,15 @@
-import { IPlayer, PlayerRole } from "stores/Game";
+import { IParticipant, ParticipantRole } from "stores/Game";
 
 import UserSlot from "./UserSlot";
 
 import styles from "./Players.module.scss";
 
 interface PlayersProps {
-    maxPlayers: number;
-    players: IPlayer[];
+    playerSlots: number;
+    players: IParticipant[];
 }
 
-const prepPlayers = ({ maxPlayers, players }: PlayersProps) => {
+const prepPlayers = ({ playerSlots, players }: PlayersProps) => {
     const getPlayerInSlot = (index: number) => {
         for (const player of players) {
             if (player.slot.index === index) return player;
@@ -18,7 +18,7 @@ const prepPlayers = ({ maxPlayers, players }: PlayersProps) => {
     };
 
     const res = [];
-    for (let key = 0; key < maxPlayers; ++key) {
+    for (let key = 0; key < playerSlots; ++key) {
         res.push({ key, value: getPlayerInSlot(key) });
     }
     return res;
@@ -33,7 +33,7 @@ export default function Players(props: PlayersProps) {
                     <UserSlot
                         key={player.key}
                         user={player.value}
-                        slot={{ role: PlayerRole.PLAYER, index: player.key }}
+                        slot={{ role: ParticipantRole.PLAYER, index: player.key }}
                     />
                 )
             }

@@ -1,0 +1,85 @@
+.board {
+    margin: 10px;
+
+    &.main {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .theme {
+            display: flex;
+            gap: 10px;
+            height: 70px;
+            font-size: 35px;
+            color: #4d442e;
+
+            .name {
+                width: 315px;
+                flex: 0 0 315px;
+            }
+
+            .question {
+                width: 140px;
+                flex: 0 0 140px;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            .block {
+                display: flex;
+                align-items: center;
+                padding: 20px;
+            }
+        }
+    }
+
+    .message {
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+
+        &.h1 {
+            font-size: 10rem;
+        }
+        &.h2 {
+            font-size: 7rem;
+        }
+        &.h3 {
+            font-size: 5rem;
+        }
+        &.h4 {
+            font-size: 3rem;
+        }
+        &.h5 {
+            font-size: 2rem;
+        }
+
+        &.mt-1rem {
+            margin-top: 1rem;
+        }
+        &.mt-2rem {
+            margin-top: 2rem;
+        }
+        &.mt-3rem {
+            margin-top: 3rem;
+        }
+        &.mt-4rem {
+            margin-top: 4rem;
+        }
+    }
+}
+
+.block {
+    background-color: #d3c698;
+
+    &.full-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y: hidden;
+        width: 100%;
+        background-color: #685c4a;
+        color: #c0b899;
+    }
+}

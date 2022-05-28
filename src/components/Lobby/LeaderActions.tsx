@@ -1,3 +1,5 @@
+import { observer } from "mobx-react";
+
 import { GameStore } from "stores/Game";
 import { lobbyWs } from "../../api/ws";
 
@@ -5,8 +7,8 @@ import MainButton from "./MainButton";
 
 import styles from "./LeaderActions.module.scss";
 
-export default function LeaderActions() {
-    if (!GameStore.gameFlow) {
+function LeaderActions() {
+    if (!GameStore.isRunning) {
         return (
             <div className={styles.wrapper}>
                 <MainButton
@@ -22,3 +24,5 @@ export default function LeaderActions() {
         <div className={styles.wrapper}>Live Actions</div>
     );
 }
+
+export default observer(LeaderActions);

@@ -9,19 +9,19 @@ interface GameItemProps {
     game: IGame;
 }
 
-function usePlayersList(game: IGame): [IUser[], boolean] {
-    const players = [...game.players];
-    for (let i = players.length; i < game.maxPlayers; ++i) {
-        players.push({
+function useParticipantsList(game: IGame): [IUser[], boolean] {
+    const participants = [...game.participants];
+    for (let i = participants.length; i < game.playerSlots; ++i) {
+        participants.push({
             _id: i.toString(),
             name: "",
         });
     }
-    return [players, game.players.length !== game.maxPlayers];
+    return [participants, game.participants.length !== game.playerSlots];
 }
 
 export default function GameItem({ game }: GameItemProps) {
-    const [players, canJoin] = usePlayersList(game);
+    const [participants, canJoin] = useParticipantsList(game);
 
     return (
         <li className={styles.game}>
@@ -33,10 +33,10 @@ export default function GameItem({ game }: GameItemProps) {
             <div className={styles.actions}>
                 <ul className={styles.players}>
                     {
-                        players.map((player) =>
+                        participants.map((participant) =>
                             <GameItemPlayer
-                                key={player._id}
-                                player={player}
+                                key={participant._id}
+                                participant={participant}
                             />
                         )
                     }

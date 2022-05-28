@@ -3,60 +3,91 @@ import { observable, action, makeObservable } from "mobx";
 import { IUser } from "api/games";
 import { LobbySlot } from "components/Lobby/UserSlot";
 
-export enum PlayerStatus {
+export enum ParticipantStatus {
     NOT_CONNECTED,
     CONNECTED,
 }
 
-export enum PlayerRole {
+export enum ParticipantRole {
     SPECTATOR,
     LEADER,
     PLAYER,
 }
 
-export interface IPlayer {
+export interface IParticipant {
     _id: string;
     name: string;
-    status: PlayerStatus;
+    status: ParticipantStatus;
     slot: LobbySlot;
+    score: number;
 }
 
-interface IPlayersList {
-    maxPlayers: number;
-    spectators: IPlayer[];
-    players: IPlayer[];
-    leader: IPlayer | null;
+interface IParticipantsList {
+    playerSlots: number;
+    spectators: IParticipant[];
+    players: IParticipant[];
+    leader: IParticipant | null;
 }
 
-interface IGameFlow {
+export enum BoardStateType {
+    FULLSCREEN,
+    TABLE,
+}
 
+export interface IFullscreenMessage {
+    text: string;
+    classes?: string[];
+}
+
+export interface IBoardTheme {
+    name: string;
+    questions: string[];
+}
+
+interface IBoardState {
+    type: BoardStateType;
+    messages: IFullscreenMessage[];
+    table: IBoardTheme[];
 }
 
 class Store {
-    maxPlayers: number = 0;
-    spectators: IPlayer[] = [];
-    players: IPlayer[] = [];
-    leader: IPlayer | null = null;
-
-    gameFlow: IGameFlow | null = null;
+    playerSlots: number = 0;
+    spectators: IParticipant[] = [];
+    players: IParticipant[] = [];
+    leader: IParticipant | null = null;
+    isRunning = false;
+    board: IBoardState | null = null;
 
     constructor() {
         makeObservable(this, {
-            maxPlayers: observable,
+            playerSlots: observable,
             spectators: observable,
             players: observable,
             leader: observable,
+            isRunning: observable,
+            board: observable,
 
-            updatePlayersList: action,
+            updateParticipantsList: action,
+            cleanGameFlow: action,
+            dispatchBoard: action,
             isLeader: action,
         });
     }
 
-    updatePlayersList(playersList: IPlayersList) {
-        this.maxPlayers = playersList.maxPlayers;
+    updateParticipantsList(playersList: IParticipantsList) {
+        this.playerSlots = playersList.playerSlots;
         this.spectators = playersList.spectators;
         this.players = playersList.players;
         this.leader = playersList.leader;
+    }
+
+    cleanGameFlow() {
+        this.isRunning = false;
+        this.board = null;
+    }
+
+    dispatchBoard(state: IBoardState) {
+        this.board = state;
     }
 
     isLeader(user: IUser | null) {

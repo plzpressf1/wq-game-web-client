@@ -4,7 +4,7 @@ import { Socket } from "socket.io-client";
 
 import { openLobbyWs } from "api/ws";
 import { UserStore } from "stores/User";
-import { GameStore, PlayerRole } from "stores/Game";
+import { GameStore, ParticipantRole } from "stores/Game";
 
 import Spectators from "./Spectators";
 import UserSlot from "./UserSlot";
@@ -21,7 +21,9 @@ function LobbyPage() {
         let socket: Socket;
         if (userId && gameId) {
             socket = openLobbyWs(userId, gameId);
-            socket.on("players/list", (resp) => GameStore.updatePlayersList(resp));
+            socket.on("participants/list", (resp) => GameStore.updateParticipantsList(resp));
+            socket.on("game-flow/clean", () => GameStore.cleanGameFlow());
+            socket.on("game-flow/board", (resp) => GameStore.dispatchBoard(resp));
         }
 
         return () => {
@@ -40,7 +42,7 @@ function LobbyPage() {
                 >
                     <UserSlot
                         user={GameStore.leader}
-                        slot={{ role: PlayerRole.LEADER }}
+                        slot={{ role: ParticipantRole.LEADER }}
                     />
                     {GameStore.isLeader(UserStore.user) && <LeaderActions/>}
                 </div>
@@ -48,13 +50,13 @@ function LobbyPage() {
             <div className={styles.right}>
                 <div className={`${styles.bottom} ${styles.panel} ${styles.players}`}>
                     <Players
-                        maxPlayers={GameStore.maxPlayers}
+                        playerSlots={GameStore.playerSlots}
                         players={GameStore.players}
                     />
                 </div>
                 <div
                     className={styles.panel}
-                    style={{ height: "100%" }}
+                    style={{ height: "100%", display: "flex", overflowY: "hidden" }}
                 >
                     <Board/>
                 </div>

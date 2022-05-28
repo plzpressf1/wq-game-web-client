@@ -1,6 +1,6 @@
 $basicShadowColor: rgba(34, 60, 80, 0.25);
 
-.basic-shadow {
+.basic-shadow, .block {
     -webkit-box-shadow: 4px 4px 8px 0 $basicShadowColor;
     -moz-box-shadow: 4px 4px 8px 0 $basicShadowColor;
     box-shadow: 4px 4px 8px 0 $basicShadowColor;
