@@ -28,11 +28,17 @@ interface IPlayersList {
     leader: IPlayer | null;
 }
 
+interface IGameFlow {
+
+}
+
 class Store {
     maxPlayers: number = 0;
     spectators: IPlayer[] = [];
     players: IPlayer[] = [];
     leader: IPlayer | null = null;
+
+    gameFlow: IGameFlow | null = null;
 
     constructor() {
         makeObservable(this, {
@@ -42,6 +48,7 @@ class Store {
             leader: observable,
 
             updatePlayersList: action,
+            isLeader: action,
         });
     }
 

@@ -1,4 +1,5 @@
 import { GameStore } from "stores/Game";
+import { lobbyWs } from "../../api/ws";
 
 import MainButton from "./MainButton";
 
@@ -11,6 +12,7 @@ export default function LeaderActions() {
                 <MainButton
                     text="Начать игру"
                     extraStyles={{ width: "100%" }}
+                    onClick={() => lobbyWs.emit("game-flow/start")}
                 />
             </div>
         );
