@@ -1,24 +1,45 @@
-.spectators {
+.wrapper {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 5px;
-    margin-top: 20px;
+    flex-direction: column;
+    margin-top: 8px;
 
-    .spectator {
+    .spectators {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 37px;
-        padding: 5px;
-        border-radius: 5px;
-        font-size: 20px;
-        background-color: #ada279;
-        color: #4d442e;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 12px;
 
-        &.disconnected {
-            background-color: #a4a091;
-            color: #756e5b;
+        .spectator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 37px;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 20px;
+            background-color: #ada279;
+            color: #4d442e;
+
+            &.disconnected {
+                background-color: #a4a091;
+                color: #756e5b;
+            }
+        }
+    }
+
+    .top {
+        text-align: center;
+
+        .button {
+            font-size: 20px;
+            color: #c1b998;
+            border-bottom: 1px dashed #c1b998;
+            background-color: #4d442e;
+
+            &:hover {
+                color: #fb8b08;
+                border-bottom: 1px dashed #fb8b08;
+            }
         }
     }
 }
