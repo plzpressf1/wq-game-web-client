@@ -29,7 +29,7 @@ export default function Players(props: PlayersProps) {
     return (
         <div className={styles.wrapper}>
             {
-                players.map(player =>
+                players.map((player) =>
                     <UserSlot
                         key={player.key}
                         user={player.value}

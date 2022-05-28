@@ -33,7 +33,7 @@ export default function GameItem({ game }: GameItemProps) {
             <div className={styles.actions}>
                 <ul className={styles.players}>
                     {
-                        players.map(player =>
+                        players.map((player) =>
                             <GameItemPlayer
                                 key={player._id}
                                 player={player}

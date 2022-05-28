@@ -36,7 +36,7 @@ function Navigation() {
     return (
         <nav className={styles.navigation}>
             {
-                navigation.map(item => {
+                navigation.map((item) => {
                     if (item.pathname === "/host" && UserStore.game) {
                         return null;
                     }

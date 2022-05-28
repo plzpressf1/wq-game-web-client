@@ -25,7 +25,7 @@ export default function GamesPage() {
             />
             <ul className={styles.games}>
                 {
-                    games.map(game =>
+                    games.map((game) =>
                         <GameItem
                             key={game._id}
                             game={game}

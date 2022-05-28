@@ -23,7 +23,7 @@ export default function Spectators({ spectators }: SpectatorProps) {
             </div>
             <div className={styles.spectators}>
                 {
-                    spectators.map(player => {
+                    spectators.map((player) => {
                         const specStyle = [styles.spectator];
                         if (player.status === PlayerStatus.NOT_CONNECTED) {
                             specStyle.push(styles.disconnected);
