@@ -10,6 +10,7 @@ import Spectators from "./Spectators";
 import UserSlot from "./UserSlot";
 import Players from "./Players";
 import Board from "./Board";
+import LeaderActions from "./LeaderActions";
 
 import styles from "./LobbyPage.module.scss";
 
@@ -41,6 +42,7 @@ function LobbyPage() {
                         user={GameStore.leader}
                         slot={{ role: PlayerRole.LEADER }}
                     />
+                    {GameStore.isLeader(UserStore.user) && <LeaderActions/>}
                 </div>
             </div>
             <div className={styles.right}>

@@ -1,8 +1,7 @@
 import { AxiosResponse } from "axios";
 
 import $api from "./common";
-import { IUser } from "stores/User";
-import { IGame } from "./games";
+import { IUser, IGame } from "./games";
 
 export interface AuthResponse {
     accessToken: string;

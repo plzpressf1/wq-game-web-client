@@ -1,5 +1,6 @@
 import { observable, action, makeObservable } from "mobx";
 
+import { IUser } from "api/games";
 import { LobbySlot } from "components/Lobby/UserSlot";
 
 export enum PlayerStatus {
@@ -49,6 +50,10 @@ class Store {
         this.spectators = playersList.spectators;
         this.players = playersList.players;
         this.leader = playersList.leader;
+    }
+
+    isLeader(user: IUser | null) {
+        return user && this.leader?._id === user._id;
     }
 }
 

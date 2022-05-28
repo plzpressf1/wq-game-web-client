@@ -2,13 +2,7 @@ import { observable, action, makeObservable, runInAction } from "mobx";
 
 import { LocalStorageEntryName } from "api/common";
 import { authLogin, authFetchUser } from "api/auth";
-import { IGame } from "api/games";
-
-export interface IUser {
-    _id: string;
-    login: string;
-    name: string;
-}
+import { IGame, IUser } from "api/games";
 
 class Store {
     isFetchingUser: boolean = false;

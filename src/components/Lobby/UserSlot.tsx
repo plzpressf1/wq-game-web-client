@@ -36,7 +36,7 @@ export default function UserSlot({ user, slot }: UserSlotProps) {
             style={inlineStyle}
             onClick={() => lobbyWs.emit("players/slot", { slot })}
         >
-            { user && <UserSlotName name={user.name}/> }
+            {user && <UserSlotName name={user.name}/>}
         </div>
     );
 }
