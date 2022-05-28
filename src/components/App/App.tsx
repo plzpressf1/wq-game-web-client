@@ -28,9 +28,11 @@ function App() {
             <BrowserRouter>
                 <div className={styles.wrapper}>
                     <header className={styles.header}>
-                        <TopBar/>
+                        <div className={styles.fixedWidth}>
+                            <TopBar/>
+                        </div>
                     </header>
-                    <main className={styles.main}>
+                    <main className={`${styles.main} ${styles.fixedWidth}`}>
                         <Routes>
                             <Route path="/lobby" element={<LobbyPage/>}/>
                             <Route path="/games" element={<GamesPage/>}/>
