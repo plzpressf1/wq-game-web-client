@@ -1,6 +1,6 @@
 import { lobbyWs } from "api/ws";
 
-import { IPlayer, PlayerRole, PlayerStatus } from "./LobbyPage";
+import { IPlayer, PlayerRole, PlayerStatus } from "stores/Game";
 
 import styles from "./Spectators.module.scss";
 

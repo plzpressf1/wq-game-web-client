@@ -64,5 +64,4 @@ class Store {
     }
 }
 
-const UserStore = new Store();
-export { UserStore };
+export const UserStore = new Store();

@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 
 import $api from "./common";
 
-export interface IPlayer {
+export interface IUser {
     _id: string;
     name: string;
 }
@@ -16,10 +16,10 @@ export interface IPack {
 export interface IGame {
     _id: string;
     name: string;
-    host: IPlayer;
+    host: IUser;
     pack: IPack;
     maxPlayers: number;
-    players: IPlayer[];
+    players: IUser[];
 }
 
 export interface GamesResponse {

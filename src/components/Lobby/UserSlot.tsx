@@ -1,6 +1,6 @@
 import {lobbyWs} from "api/ws";
 
-import {IPlayer, PlayerRole} from "./LobbyPage";
+import { IPlayer, PlayerRole } from "stores/Game";
 
 import "styles/shadows.scss";
 import styles from "./UserSlot.module.scss";

@@ -1,4 +1,4 @@
-import {IPlayer, PlayerRole} from "./LobbyPage";
+import { IPlayer, PlayerRole } from "stores/Game";
 
 import UserSlot from "./UserSlot";
 

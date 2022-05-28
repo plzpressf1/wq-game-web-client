@@ -1,4 +1,4 @@
-import { IGame, IPlayer } from "api/games";
+import { IGame, IUser } from "api/games";
 
 import GameItemPlayer from "./GameItemPlayer";
 import JoinGameButton from "./JoinGameButton";
@@ -9,7 +9,7 @@ interface GameItemProps {
     game: IGame;
 }
 
-function usePlayersList(game: IGame): [IPlayer[], boolean] {
+function usePlayersList(game: IGame): [IUser[], boolean] {
     const players = [...game.players];
     for (let i = players.length; i < game.maxPlayers; ++i) {
         players.push({
