@@ -66,7 +66,6 @@ function LobbyPage() {
                 </div>
                 <div
                     className={`${styles.panel} ${styles.leader}`}
-                    style={{ height: "100%" }}
                 >
                     <UserSlot
                         user={leader}
