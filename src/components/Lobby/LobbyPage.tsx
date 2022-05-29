@@ -24,11 +24,12 @@ function LobbyPage() {
             socket.on("participants/list", (resp) => GameStore.updateParticipantsList(resp));
             socket.on("game-flow/clean", () => GameStore.cleanGameFlow());
             socket.on("game-flow/board", (resp) => GameStore.dispatchBoard(resp));
-        }
+            socket.on("game-flow/logic", (resp) => GameStore.dispatchLogic(resp));
 
-        return () => {
-            socket?.disconnect();
-        };
+            return () => {
+                socket.disconnect();
+            };
+        }
     }, []);
 
     return (
