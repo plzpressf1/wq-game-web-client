@@ -1,6 +1,7 @@
 import { RefObject } from "react";
 
 import { lobbyWs } from "api/ws";
+import { UserStore } from "stores/User";
 import { Participant, ParticipantRole } from "stores/Game";
 import useHover from "hooks/useHover";
 
@@ -45,7 +46,7 @@ export default function UserSlot({ user, slot }: UserSlotProps) {
             ref={ref as RefObject<HTMLDivElement>}
         >
             {user && <UserSlotName name={user.name}/>}
-            {user && isHover && <EditUserButton/>}
+            {user && user._id === UserStore.user?._id && isHover && <EditUserButton/>}
         </div>
     );
 }
