@@ -34,9 +34,15 @@ export interface FullscreenMessage {
     classes?: string[];
 }
 
+export interface Question {
+    text: string;
+    reward: number;
+    available: boolean;
+}
+
 export interface BoardTheme {
     name: string;
-    questions: string[];
+    questions: Question[];
 }
 
 export enum BoardStateType {
