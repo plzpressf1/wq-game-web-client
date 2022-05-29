@@ -22,5 +22,23 @@
         font-size: 24px;
         color: #4d442e;
     }
-}
 
+    .edit {
+        position: relative;
+        margin: 5px 5px auto auto;
+        width: 33px;
+        height: 33px;
+        cursor: pointer;
+        padding: 5px;
+        background-color: #685c4a;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: #53432a;
+        }
+
+        svg {
+            fill: #ada279;
+        }
+    }
+}
