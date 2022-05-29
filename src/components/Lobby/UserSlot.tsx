@@ -1,7 +1,7 @@
 import { RefObject } from "react";
 
 import { lobbyWs } from "api/ws";
-import { IParticipant, ParticipantRole } from "stores/Game";
+import { Participant, ParticipantRole } from "stores/Game";
 import useHover from "hooks/useHover";
 
 import "styles/shadows.scss";
@@ -24,7 +24,7 @@ function EditUserButton() {
 }
 
 interface UserSlotProps {
-    user: IParticipant | null;
+    user: Participant | null;
     slot: LobbySlot;
 }
 

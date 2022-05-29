@@ -1,4 +1,4 @@
-import { IGame, IUser } from "api/games";
+import { Game, User } from "api/games";
 
 import GameItemPlayer from "./GameItemPlayer";
 import JoinGameButton from "./JoinGameButton";
@@ -6,10 +6,10 @@ import JoinGameButton from "./JoinGameButton";
 import styles from "./GameItem.module.scss";
 
 interface GameItemProps {
-    game: IGame;
+    game: Game;
 }
 
-function useParticipantsList(game: IGame): [IUser[], boolean] {
+function useParticipantsList(game: Game): [User[], boolean] {
     const participants = [...game.participants];
     for (let i = participants.length; i < game.playerSlots; ++i) {
         participants.push({

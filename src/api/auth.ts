@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 
 import $api from "./common";
-import { IUser, IGame } from "./games";
+import { User, Game } from "./games";
 
 export interface AuthResponse {
     accessToken: string;
@@ -9,8 +9,8 @@ export interface AuthResponse {
 }
 
 export interface FetchUserDataResponse {
-    user: IUser;
-    game: IGame;
+    user: User;
+    game: Game;
 }
 
 export async function authLogin(login: string, password: string): Promise<AxiosResponse<AuthResponse>> {

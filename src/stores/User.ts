@@ -2,12 +2,12 @@ import { observable, action, makeObservable, runInAction } from "mobx";
 
 import { LocalStorageEntryName } from "api/common";
 import { authLogin, authFetchUser } from "api/auth";
-import { IGame, IUser } from "api/games";
+import { Game, User } from "api/games";
 
 class Store {
     isFetchingUser: boolean = false;
-    user: IUser | null = null;
-    game: IGame | null = null;
+    user: User | null = null;
+    game: Game | null = null;
 
     constructor() {
         makeObservable(this, {

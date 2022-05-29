@@ -1,9 +1,9 @@
-import { IFullscreenMessage } from "stores/Game";
+import { FullscreenMessage } from "stores/Game";
 
 import "./Board.scss";
 
 interface BoardInfoProps {
-    board: IFullscreenMessage[];
+    board: FullscreenMessage[];
 }
 
 export default function BoardInfo({ board }: BoardInfoProps) {

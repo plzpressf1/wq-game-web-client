@@ -1,9 +1,9 @@
-import { IUser } from "api/games";
+import { User } from "api/games";
 
 import styles from "./GameItemPlayer.module.scss";
 
-export interface GameItemPlayerProps {
-    participant: IUser;
+interface GameItemPlayerProps {
+    participant: User;
 }
 
 export default function GameItemPlayer({ participant }: GameItemPlayerProps) {

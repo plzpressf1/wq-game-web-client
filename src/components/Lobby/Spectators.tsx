@@ -1,11 +1,11 @@
 import { lobbyWs } from "api/ws";
 
-import { IParticipant, ParticipantRole, ParticipantStatus } from "stores/Game";
+import { Participant, ParticipantRole, ParticipantStatus } from "stores/Game";
 
 import styles from "./Spectators.module.scss";
 
 interface SpectatorProps {
-    spectators: IParticipant[];
+    spectators: Participant[];
 }
 
 export default function Spectators({ spectators }: SpectatorProps) {

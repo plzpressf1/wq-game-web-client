@@ -1,4 +1,4 @@
-import { IParticipant, ParticipantRole } from "stores/Game";
+import { Participant, ParticipantRole } from "stores/Game";
 
 import UserSlot from "./UserSlot";
 
@@ -6,7 +6,7 @@ import styles from "./Players.module.scss";
 
 interface PlayersProps {
     playerSlots: number;
-    players: IParticipant[];
+    players: Participant[];
 }
 
 const prepPlayers = ({ playerSlots, players }: PlayersProps) => {

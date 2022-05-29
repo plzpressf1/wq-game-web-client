@@ -1,12 +1,12 @@
-import { IBoardTheme } from "stores/Game";
+import { BoardTheme } from "stores/Game";
 
 import "./Board.scss";
 
 interface BoardMainProps {
-    board: IBoardTheme[];
+    board: BoardTheme[];
 }
 
-function Theme({ theme } : { theme: IBoardTheme }) {
+function Theme({ theme } : { theme: BoardTheme }) {
     return (
         <div className="theme">
             <div className="block name">{theme.name}</div>

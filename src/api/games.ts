@@ -2,28 +2,28 @@ import { AxiosResponse } from "axios";
 
 import $api from "./common";
 
-export interface IUser {
+export interface User {
     _id: string;
     name: string;
 }
 
-export interface IPack {
+export interface Pack {
     _id: string;
     name: string;
     description: string;
 }
 
-export interface IGame {
+export interface Game {
     _id: string;
     name: string;
-    host: IUser;
-    pack: IPack;
+    host: User;
+    pack: Pack;
     playerSlots: number;
-    participants: IUser[];
+    participants: User[];
 }
 
 export interface GamesResponse {
-    games: IGame[];
+    games: Game[];
 }
 
 export async function searchGamesByFilter(filter: string): Promise<AxiosResponse<GamesResponse>> {

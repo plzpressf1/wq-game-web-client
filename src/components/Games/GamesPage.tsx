@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { IGame, searchGamesByFilter } from "api/games";
+import { Game, searchGamesByFilter } from "api/games";
 
 import DebouncedInput from "components/common/DebouncedInput";
 import GameItem from "./GameItem";
@@ -8,7 +8,7 @@ import GameItem from "./GameItem";
 import styles from "./GamesPage.module.scss";
 
 export default function GamesPage() {
-    const [games, setGames] = useState<IGame[]>([]);
+    const [games, setGames] = useState<Game[]>([]);
 
     const searchGames = async (filter: string) => {
         const response = await searchGamesByFilter(filter);
